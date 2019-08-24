@@ -1,4 +1,4 @@
-package edu.escuelaing.arem;
+package edu.escuelaing.arem.Cuadrado;
 
 import java.net.*;
 import java.io.*;
@@ -23,9 +23,11 @@ public class EchoServer {
         BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
         String inputLine, outputLine;
         while ((inputLine = in.readLine()) != null) {
-            System.out.println("Mensaje:" + inputLine);
-            outputLine = "Respuesta" + inputLine;
-            out.println(outputLine);
+            System.out.println("Mensaje: " + inputLine);
+            int cuadrado = Integer.parseInt(inputLine);
+            cuadrado *= cuadrado;
+            outputLine = Integer.toString(cuadrado);
+            out.println("El numero al cuadrado es: " + outputLine);
             if (outputLine.equals("Respuestas: Bye."))
                 break;
         }
