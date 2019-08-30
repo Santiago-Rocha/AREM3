@@ -5,6 +5,7 @@ import java.net.*;
 
 public class URLReader {
     public static void main( String[] args ) throws Exception{
+        URlMethods();
         browserReader();
     }
 
@@ -22,7 +23,8 @@ public class URLReader {
 
     public static void browserReader() throws Exception{
         BufferedReader br =  new BufferedReader(new InputStreamReader(System.in));
-        System.out.println("Ingrese una URL");
+        System.out.println("Ingrese una direccion");
+        System.out.println("Ejemplo: https://github.com/santiago-Rocha");
         URL url = new URL(br.readLine());
         String line =  null;
         br =  new BufferedReader(new InputStreamReader(url.openStream()));
@@ -31,5 +33,6 @@ public class URLReader {
             writer.print(line);
         }
         writer.close();
+        System.out.println("El resultado fue guardado en prueba.html");
     }
 }
